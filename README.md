@@ -10,7 +10,7 @@
 - tkinter 8.6
 - gtts 2.2.3
 - googletrans 4.0.0-rc.1
-- pysound 1.3.0
+- playsound 1.3.0
 
 ---
 
@@ -18,6 +18,16 @@
 ### セットアップ
 #### ROSのインストール~ワークスペースの作成
 ROSのインストールからワークスペースの作成は, ryuichiueda様が作成された[こちら](https://cit.manaba.jp/ct/link_iframe_balloon?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DPL85Pw_zQH0)の動画を参考に行いました. 
+#### 使用するモジュールのインストール
+インストールされていないモジュールがありましたら, 以下のコマンドで必要なものを実行してください. 
+```sh
+sudo apt install python3-pip
+sudo apt install python3-tk
+pip install gtts
+pip install googletrans==4.0.0-rc1
+pip install playsound
+```
+#### リポジトリの
 ```sh
 cd ~/catkin_ws/src/
 git clone git@github.com:makotoyoshigoe/RobotSystem2021_ROS.git
