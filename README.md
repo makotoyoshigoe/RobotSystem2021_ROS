@@ -47,3 +47,10 @@ roslaunch translate translate.launch
 ```
 上記のコマンドを実行すると, 下の画像のようなウィンドウが表示されます. 
 ![Screenshot 2021-12-29 02:56:48](https://user-images.githubusercontent.com/91446273/147593977-87850b5a-146f-4d64-9398-6d33f0b124d3.png)
+
+テキストボックスに適当な日本語の文章を入力します. 
+![Screenshot 2021-12-29 03:06:34](https://user-images.githubusercontent.com/91446273/147594484-92255adb-83c4-4251-9660-f546bc3f9ae6.png)
+
+Translateボタンを押すと, 入力した日本語の文章がいくつかの言語に翻訳されて表示されます. 
+![Screenshot 2021-12-29 03:09:36](https://user-images.githubusercontent.com/91446273/147594680-2a47c978-d9c9-4b89-a231-fa4e9ecd4541.png)
+文章の隣りにある〇〇語再生というボタンをクリックすると, 〇〇語で文章を読んでくれます. 
