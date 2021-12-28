@@ -2,7 +2,6 @@
 import rospy
 import tkinter as tk
 from translate.srv import Str
-import playsound
 
 class Translate():
     def __init__(self, window, langs):
