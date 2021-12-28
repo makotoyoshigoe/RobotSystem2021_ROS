@@ -17,7 +17,7 @@
 ## 実行方法
 ### セットアップ
 #### ROSのインストール~ワークスペースの作成
-ROSのインストールからワークスペースの作成は, ryuichiueda様が作成された[こちら](https://cit.manaba.jp/ct/link_iframe_balloon?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DPL85Pw_zQH0)の動画を参考に行いました. 
+ROSのインストールからワークスペースの作成は, ryuichiueda様が作成された[こちら](https://www.youtube.com/watch?v=PL85Pw_zQH0)の動画を参考に行いました. 
 #### 使用するモジュールのインストール
 インストールされていないモジュールがありましたら, 以下のコマンドで必要なものを実行してください. 
 ```sh
@@ -27,7 +27,7 @@ pip install gtts
 pip install googletrans==4.0.0-rc1
 pip install playsound
 ```
-#### リポジトリの
+#### リポジトリのクローン
 ```sh
 cd ~/catkin_ws/src/
 git clone git@github.com:makotoyoshigoe/RobotSystem2021_ROS.git
