@@ -8,9 +8,9 @@ class Translate():
     def __init__(self, window, langs):
         self.window = window
         self.langs = langs
-        self.lang_label = [tk.Label(text='') for i in langs]
-        print(self.lang_label[1], type(self.lang_label))
-        self.result = [tk.Label(text='') for i in langs]
+        self.lang_label = [tk.Label(text='', anchor=tk.W) for i in langs]
+        self.result = [tk.Label(text='', anchor=tk.W) for i in langs]
+        self.pronounce = [tk.Button(self.window, text='再生', command=self.pron_btn_cb) for i in langs]
         self.translator = rospy.ServiceProxy('translate', Str)
         self.create_quit_btn()
         self.create_textbox()
@@ -22,7 +22,7 @@ class Translate():
         quit_btn.place(x=x, y=y+40)
     
     def create_textbox(self):
-        x, y = 150, 100
+        x, y = 150, 40
         label = tk.Label(text='Origin')
         label.place(x=x-60, y=y)
         self.txt = tk.Entry(width=50)
@@ -31,17 +31,29 @@ class Translate():
         trans_btn.place(x=x+410, y=y-4)
     
     def trans_btn_cb(self):
-        
-        x, y = 350, 200
         i = 0
+        adjuster = tk.Label(text='')
+        adjuster.grid(row=0, column=0, padx = 30, pady = 30)
         rospy.loginfo(self.txt.get())
         for key, value in self.langs.items():
             txt = self.translator(f'{self.txt.get()}, {value}')
             self.lang_label[i]['text'] = key
-            self.lang_label[i].place(x=x-50, y=y+30*i)
+            self.lang_label[i].grid(row = i+100, column = 3, padx = 2, pady = 2)
             self.result[i]['text'] = txt.strOut
-            self.result[i].place(x=x, y=y+30*i)
+            self.result[i].grid(row = i+100, column = 4, padx = 2, pady = 2)
+            self.pronounce[i].grid(row = i+100, column = 5,padx = 2, pady = 2)
             i += 1
+        print(self.txt.get())
+
+        if self.txt.get().find('nvidia') != -1:
+            nv = tk.Label(text='???')
+            nv.grid(row=i+100, column=3, padx = 2, pady = 2)
+            fy = tk.Button(text='再生')
+            fy.grid(row=i+100, column=5, padx = 2, pady = 2)
+    
+    def pron_btn_cb(self):
+        print(self.pronounce.index())
+        
 
 def main():
     rospy.init_node('main')
@@ -49,7 +61,11 @@ def main():
     for srv in wait_srv:
         rospy.wait_for_service(srv)
     rospy.loginfo('finished waiting server')
-    langs = {'日本語': 'ja', '英語': 'en', 'フランス語': 'fr', }
+    langs = {
+        '日本語': 'ja', '英語': 'en', 'フランス語': 'fr', '中国語(簡体字)': 'zh-cn', 
+        '中国語(繁体字)': 'zh-tw', 'イタリア語': 'it','韓国語': 'ko', 'ドイツ語': 'da',
+        'ロシア語': 'ru', 'スペイン語': 'es', 
+        }
     window = tk.Tk()
     window.geometry("750x500")
     translate = Translate(window=window, langs=langs)

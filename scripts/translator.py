@@ -9,7 +9,7 @@ import os
 class Translator():
     def __init__(self):
         self.translator = googletrans.Translator()
-        self.path = '/home/'+os.getlogin()+'/catkin_ws/src/translate/pronounce/'
+        self.path = f'/home/{os.getlogin()}/catkin_ws/src/translate/pronounce/'
 
     #翻訳
     def translate(self, data):
