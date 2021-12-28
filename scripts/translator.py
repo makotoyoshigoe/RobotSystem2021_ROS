@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-from typing import Text
 import rospy
 from gtts import gTTS
 import googletrans
 from translate.srv import Str, StrResponse
 import os
+import playsound
 
 class Translator():
     def __init__(self):
@@ -26,11 +26,19 @@ class Translator():
     def create_pronounce(self, text):
         pronaunce = gTTS(text=text, lang=self.lang, slow=False)
         pronaunce.save(f'{self.path}{self.lang}.mp3')
+    
+    def play_sound(self, data):
+        resp = StrResponse()
+        playsound.playsound(f'{self.path}{data.strIn}.mp3')
+        resp.strOut = 'completed'
+        return resp
+
 
 def main():
     rospy.init_node('translator')
     translator = Translator()
     trans_srv = rospy.Service('translate', Str, translator.translate)
+    sound_srv = rospy.Service('play_sound', Str, translator.play_sound)
     rospy.loginfo('translator server start')
     rospy.spin()
 

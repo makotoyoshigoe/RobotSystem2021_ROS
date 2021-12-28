@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-from typing import Text
 import rospy
 import tkinter as tk
 from translate.srv import Str
+import playsound
 
 class Translate():
     def __init__(self, window, langs):
@@ -10,7 +10,8 @@ class Translate():
         self.langs = langs
         self.lang_label = [tk.Label(text='', anchor=tk.W) for i in langs]
         self.result = [tk.Label(text='', anchor=tk.W) for i in langs]
-        self.pronounce = [tk.Button(self.window, text='再生', command=self.pron_btn_cb) for i in langs]
+        self.pronounce = [tk.Button(self.window, text=f'{key}再生') for key, value in langs.items()]
+        self.play_sound = rospy.ServiceProxy('play_sound', Str)
         self.translator = rospy.ServiceProxy('translate', Str)
         self.create_quit_btn()
         self.create_textbox()
@@ -42,8 +43,9 @@ class Translate():
             self.result[i]['text'] = txt.strOut
             self.result[i].grid(row = i+100, column = 4, padx = 2, pady = 2)
             self.pronounce[i].grid(row = i+100, column = 5,padx = 2, pady = 2)
+            self.pronounce[i].bind("<ButtonPress>", self.pron_btn_cb)
             i += 1
-        print(self.txt.get())
+        # print(self.txt.get())
 
         if self.txt.get().find('nvidia') != -1:
             nv = tk.Label(text='???')
@@ -51,13 +53,15 @@ class Translate():
             fy = tk.Button(text='再生')
             fy.grid(row=i+100, column=5, padx = 2, pady = 2)
     
-    def pron_btn_cb(self):
-        print(self.pronounce.index())
+    def pron_btn_cb(self, event):
+        lang = event.widget.cget("text").replace('再生', '')
+        result = self.play_sound(self.langs[lang]) if lang != '???' else self.play_sound('Linus')
+        print(result.strOut)
         
 
 def main():
     rospy.init_node('main')
-    wait_srv = ['translate']
+    wait_srv = ['translate', 'play_sound']
     for srv in wait_srv:
         rospy.wait_for_service(srv)
     rospy.loginfo('finished waiting server')
