@@ -46,3 +46,4 @@ roscore
 roslaunch translate translate.launch
 ```
 上記のコマンドを実行すると, 下の画像のようなウィンドウが表示されます. 
+![Screenshot 2021-12-29 02:56:48](https://user-images.githubusercontent.com/91446273/147593977-87850b5a-146f-4d64-9398-6d33f0b124d3.png)
