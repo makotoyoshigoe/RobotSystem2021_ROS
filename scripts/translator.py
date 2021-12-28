@@ -27,6 +27,7 @@ class Translator():
         pronaunce = gTTS(text=text, lang=self.lang, slow=False)
         pronaunce.save(f'{self.path}{self.lang}.mp3')
     
+    #音声の再生
     def play_sound(self, data):
         resp = StrResponse()
         print(data.strIn)
@@ -34,7 +35,7 @@ class Translator():
         resp.strOut = 'completed'
         return resp
 
-
+#メイン処理
 def main():
     rospy.init_node('translator')
     translator = Translator()
