@@ -1,5 +1,5 @@
 <launch>
     <node name="main" pkg="translate" type="main.py" required="true" output="screen" />
-    <!-- <node name="gen_rand" pkg="translate" type="gen_rand.py" required="true" output="screen" />
-    <node name="judge_logo" pkg="translate" type="judge_logo.py" required="true" output="screen" /> -->
+    <node name="translator" pkg="translate" type="translator.py" required="true" output="screen" />
+    <!-- <node name="judge_logo" pkg="translate" type="judge_logo.py" required="true" output="screen" /> -->
 </launch>
