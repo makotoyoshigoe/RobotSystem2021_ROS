@@ -32,3 +32,17 @@ pip install playsound
 cd ~/catkin_ws/src/
 git clone git@github.com:makotoyoshigoe/RobotSystem2021_ROS.git
 ```
+
+---
+
+### 実行
+- 端末1
+```sh
+roscore
+```
+
+- 端末2
+```sh
+roslaunch translate translate.launch
+```
+上記のコマンドを実行すると, 下の画像のようなウィンドウが表示されます. 
