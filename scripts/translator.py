@@ -29,6 +29,7 @@ class Translator():
     
     def play_sound(self, data):
         resp = StrResponse()
+        print(data.strIn)
         playsound.playsound(f'{self.path}{data.strIn}.mp3')
         resp.strOut = 'completed'
         return resp

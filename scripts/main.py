@@ -45,19 +45,10 @@ class Translate():
             self.pronounce[i].grid(row = i+100, column = 5,padx = 2, pady = 2)
             self.pronounce[i].bind("<ButtonPress>", self.pron_btn_cb)
             i += 1
-        # print(self.txt.get())
-
-        if self.txt.get().find('nvidia') != -1:
-            nv = tk.Label(text='???')
-            nv.grid(row=i+100, column=3, padx = 2, pady = 2)
-            fy = tk.Button(text='再生')
-            fy.grid(row=i+100, column=5, padx = 2, pady = 2)
     
     def pron_btn_cb(self, event):
         lang = event.widget.cget("text").replace('再生', '')
-        result = self.play_sound(self.langs[lang]) if lang != '???' else self.play_sound('Linus')
-        print(result.strOut)
-        
+        result = self.play_sound(self.langs[lang])
 
 def main():
     rospy.init_node('main')
