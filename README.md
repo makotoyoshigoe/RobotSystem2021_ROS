@@ -8,7 +8,7 @@
 - ROS Noetic
 - Python 3.8.10
 - tkinter 8.6
-- gtts 2.2.3
+- gTTs 2.2.3
 - googletrans 4.0.0-rc.1
 - playsound 1.3.0
 
@@ -63,11 +63,13 @@ roslaunch translate translate.launch
 
 ---
 
-## 実際動かしている様子
+## 実際に動かしている様子
 - YouTube: 
+
+---
 
 ## ライセンス
 - This repository is licensed under the BSD license.
-- gTTs: [MIT license](https://github.com/pndurette/gTTS/blob/master/LICENSE)
+- gTTs: [MIT License](https://github.com/pndurette/gTTS/blob/master/LICENSE)
 - googletrans: [MIT License](https://github.com/ssut/py-googletrans/blob/master/LICENSE)
 - playsound: [MIT License](https://github.com/TaylorSMarks/playsound/blob/master/LICENSE)
