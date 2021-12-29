@@ -68,7 +68,7 @@ roslaunch translate translate.launch
 ---
 
 ## 実際に動かしている様子
-- YouTube: 
+- YouTube: https://youtu.be/J_W4Eqn18fM
 
 ---
 
