@@ -1,4 +1,4 @@
-# RobotSystem2021_ROS
+# translate
 テキストボックスに日本語を入力して翻訳ボタンを押すと、いくつかの言語で翻訳された文章が表示されます. また, 再生ボタンを押すことで、その言語で文章を読んだ音声が再生されます. 
 
 ---
@@ -30,7 +30,7 @@ pip install playsound
 #### リポジトリのクローン
 ```sh
 cd ~/catkin_ws/src/
-git clone git@github.com:makotoyoshigoe/RobotSystem2021_ROS.git
+git clone git@github.com:makotoyoshigoe/translate.git
 ```
 
 ---
