@@ -19,10 +19,10 @@ class Translate():
 
     #終了ボタン作成
     def create_quit_btn(self):
-        x, y = 600, 400
+        x, y = 600, 460
         quit_btn = tk.Button(self.window, text='Quit')
         quit_btn['command'] = self.window.destroy
-        quit_btn.place(x=x, y=y+40)
+        quit_btn.place(x=x, y=y)
     
     #テキストボックス作成
     def create_textbox(self):
