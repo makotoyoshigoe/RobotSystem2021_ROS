@@ -31,6 +31,7 @@ pip install playsound
 ```sh
 cd ~/catkin_ws/src/
 git clone git@github.com:makotoyoshigoe/translate.git
+cd ../
 catkin_make
 source ~/.bashrc
 
