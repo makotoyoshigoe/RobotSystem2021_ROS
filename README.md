@@ -56,5 +56,18 @@ roslaunch translate translate.launch
 
 - 文章の隣りにある〇〇語再生というボタンをクリックすると, 〇〇語で文章を読んでくれます. 
 
+---
+
 ### 終了
 - 画面右下にあるQuitボタンを押すと, ウィンドウが閉じ, 終了します. 
+
+---
+
+## 実際動かしている様子
+- YouTube: 
+
+## ライセンス
+- This repository is licensed under the BSD license.
+- gTTs: [MIT license](https://github.com/pndurette/gTTS/blob/master/LICENSE)
+- googletrans: [MIT License](https://github.com/ssut/py-googletrans/blob/master/LICENSE)
+- playsound: [MIT License](https://github.com/TaylorSMarks/playsound/blob/master/LICENSE)
