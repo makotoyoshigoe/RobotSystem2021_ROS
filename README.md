@@ -59,7 +59,7 @@ roslaunch translate translate.launch
 ---
 
 ### 終了
-- 画面右下にあるQuitボタンを押すと, ウィンドウが閉じ, 終了します. 
+- 画面右下にあるQuitボタンを押すと, ウィンドウが閉じ, 終了します.
 
 ---
 
