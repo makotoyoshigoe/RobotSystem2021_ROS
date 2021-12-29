@@ -73,7 +73,7 @@ roslaunch translate translate.launch
 ---
 
 ## ライセンス
-- This repository is licensed under the BSD license.
+- This repository is licensed under the [BSD License](https://github.com/makotoyoshigoe/translate/blob/master/LICENSE).
 - gTTs: [MIT License](https://github.com/pndurette/gTTS/blob/master/LICENSE)
 - googletrans: [MIT License](https://github.com/ssut/py-googletrans/blob/master/LICENSE)
 - playsound: [MIT License](https://github.com/TaylorSMarks/playsound/blob/master/LICENSE)
