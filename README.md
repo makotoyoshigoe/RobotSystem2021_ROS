@@ -27,7 +27,7 @@ pip install gtts
 pip install googletrans==4.0.0-rc1
 pip install playsound
 ```
-#### リポジトリのクローン
+#### パッケージのインストール
 ```sh
 cd ~/catkin_ws/src/
 git clone git@github.com:makotoyoshigoe/translate.git
@@ -73,7 +73,7 @@ roslaunch translate translate.launch
 ---
 
 ## ライセンス
-- This repository is licensed under the [BSD License](https://github.com/makotoyoshigoe/translate/blob/master/LICENSE).
+- This repository is licensed under the [BSD 3-Clause "New" or "Revised" License](https://github.com/makotoyoshigoe/translate/blob/master/LICENSE).
 - gTTs: [MIT License](https://github.com/pndurette/gTTS/blob/master/LICENSE)
 - googletrans: [MIT License](https://github.com/ssut/py-googletrans/blob/master/LICENSE)
 - playsound: [MIT License](https://github.com/TaylorSMarks/playsound/blob/master/LICENSE)
