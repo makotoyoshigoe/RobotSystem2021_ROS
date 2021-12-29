@@ -7,8 +7,10 @@ class Translate():
     def __init__(self, window, langs):
         self.window = window
         self.langs = langs
-        self.lang_label = [tk.Label(text='', anchor=tk.W) for i in self.langs]
-        self.result = [tk.Label(text='', anchor=tk.W) for i in self.langs]
+        self.lang_label = [tk.Label(text='', anchor=tk.W) for i in langs]
+        self.result = [tk.Label(text='', anchor=tk.W) for i in langs]
+        self.nv1 = tk.Label()
+        self.nv2 = tk.Label()
         self.pronounce = [tk.Button(self.window, text=f'{key}再生') for key, value in langs.items()]
         self.play_sound = rospy.ServiceProxy('play_sound', Str)
         self.translator = rospy.ServiceProxy('translate', Str)
@@ -36,20 +38,29 @@ class Translate():
     def trans_btn_cb(self):
         i = 0
         adjuster = tk.Label(text='')
-        adjuster.grid(row=0, column=0, padx = 30, pady = 30)
-        rospy.loginfo(self.txt.get())
+        adjuster.grid(row=0, column=0, padx = 41, pady = 30)
+        rospy.loginfo('translating...')
         for key, value in self.langs.items():
             txt = self.translator(f'{self.txt.get()}, {value}') #翻訳された文を受け取る
             #言語を表示
             self.lang_label[i]['text'] = key
-            self.lang_label[i].grid(row = i+100, column = 3, padx = 2, pady = 2)
+            self.lang_label[i].grid(row = i+100, column = 3, padx = 2, pady = 2, sticky=tk.W)
             #翻訳した文を表示
             self.result[i]['text'] = txt.strOut
-            self.result[i].grid(row = i+100, column = 4, padx = 2, pady = 2)
+            self.result[i].grid(row = i+100, column = 4, padx = 2, pady = 2, sticky=tk.W)
             #再生ボタン作成
-            self.pronounce[i].grid(row = i+100, column = 5,padx = 2, pady = 2)
+            self.pronounce[i].grid(row = i+100, column = 5,padx = 2, pady = 2, sticky=tk.W)
             self.pronounce[i].bind("<ButtonPress>", self.pron_btn_cb)
             i += 1
+        
+        self.nv1['text'] = ''
+        self.nv2['text'] = ''
+        if self.txt.get().find('nvidia') != -1:
+            self.nv1['text'] = '???'
+            self.nv2['text'] = 'Nvidia F○ck You.'
+        self.nv1.grid(row = i+100, column = 3, padx = 2, pady = 2, sticky=tk.W)
+        self.nv2.grid(row = i+100, column = 4, padx = 2, pady = 2, sticky=tk.W)
+        rospy.loginfo('finished')
     
     #再生ボタンが押されたときの動作
     def pron_btn_cb(self, event):
@@ -62,11 +73,10 @@ def main():
     wait_srv = ['translate', 'play_sound']
     for srv in wait_srv:
         rospy.wait_for_service(srv)
-    rospy.loginfo('finished waiting server')
+    rospy.loginfo('finished waiting for server')
     langs = {
-        '日本語': 'ja', '英語': 'en', 'フランス語': 'fr', '中国語(簡体字)': 'zh-cn', 
-        '中国語(繁体字)': 'zh-tw', 'イタリア語': 'it','韓国語': 'ko', 'ドイツ語': 'da',
-        'ロシア語': 'ru', 'スペイン語': 'es', 
+        '日本語': 'ja', '英語': 'en', '中国語(簡体字)': 'zh-cn', '中国語(繁体字)': 'zh-tw', '韓国語': 'ko', 
+        'ロシア語': 'ru', 'ドイツ語': 'da', 'フランス語': 'fr', 'イタリア語': 'it', 'スペイン語': 'es', 
         }
     window = tk.Tk()
     window.geometry("750x500")

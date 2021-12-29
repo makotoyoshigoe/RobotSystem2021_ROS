@@ -17,7 +17,6 @@ class Translator():
         sentence = data.strIn.split(', ')
         self.origin, self.lang = sentence[0], sentence[1]
         result = self.translator.translate(text=self.origin, src='ja', dest=self.lang)
-        rospy.loginfo(result.text)
         resp.strOut = result.text
         self.create_pronounce(text=result.text)
         return resp
@@ -30,7 +29,6 @@ class Translator():
     #音声の再生
     def play_sound(self, data):
         resp = StrResponse()
-        print(data.strIn)
         playsound.playsound(f'{self.path}{data.strIn}.mp3')
         resp.strOut = 'completed'
         return resp
