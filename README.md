@@ -4,7 +4,7 @@
 ---
 
 ## 動作環境
-- Ubuntu 20.04.3 LTS Desktop
+- Ubuntu Desktop 20.04.3 LTS 
 - ROS Noetic
 - Python 3.8.10
 - tkinter 8.6
